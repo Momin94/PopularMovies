@@ -18,6 +18,7 @@
 		298D6A4E2705E80D00A2723A /* PopularMoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D6A4D2705E80D00A2723A /* PopularMoviesUITestsLaunchTests.swift */; };
 		298D6A602705E9BE00A2723A /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D6A5F2705E9BE00A2723A /* MovieViewModel.swift */; };
 		298D6A622705E9F200A2723A /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D6A612705E9F100A2723A /* MovieModel.swift */; };
+		298D6A652705ECA700A2723A /* AppServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D6A642705ECA700A2723A /* AppServiceClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		298D6A4D2705E80D00A2723A /* PopularMoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		298D6A5F2705E9BE00A2723A /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		298D6A612705E9F100A2723A /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		298D6A642705ECA700A2723A /* AppServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServiceClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 		298D6A5B2705E83400A2723A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				298D6A642705ECA700A2723A /* AppServiceClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			files = (
 				298D6A2F2705E80B00A2723A /* ViewController.swift in Sources */,
 				298D6A2B2705E80B00A2723A /* AppDelegate.swift in Sources */,
+				298D6A652705ECA700A2723A /* AppServiceClient.swift in Sources */,
 				298D6A622705E9F200A2723A /* MovieModel.swift in Sources */,
 				298D6A2D2705E80B00A2723A /* SceneDelegate.swift in Sources */,
 				298D6A602705E9BE00A2723A /* MovieViewModel.swift in Sources */,
