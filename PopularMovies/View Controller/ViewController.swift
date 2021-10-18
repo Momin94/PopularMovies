@@ -44,8 +44,8 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: Constants.shareInstance.getCellName(),
             for: indexPath) as? MovieCell else {
-                return UICollectionViewCell()
-            }
+            return UICollectionViewCell()
+        }
         cell.backgroundColor = .black
         if indexPath.row <= movieViewModel.movieArray.count {
             let modelMovie = movieViewModel.movieArray[indexPath.row]
@@ -57,14 +57,14 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return cell
     }
 
-//tells the layout the size of a given cell.
+    // tells the layout the size of a given cell.
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        //work out the total amount of space taken up by padding. You’ll have n + 1 evenly sized spaces, where n is the number of items in the row. You can take the space size from the left section inset.
-      //  Subtracting that from the view’s width and dividing by the number of items in a row gives you the width for each item. You then return the size as a square.
+        // work out the total amount of space taken up by padding. You’ll have n + 1 evenly sized spaces, where n is the number of items in the row. You can take the space size from the left section inset.
+        //  Subtracting that from the view’s width and dividing by the number of items in a row gives you the width for each item. You then return the size as a square.
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
@@ -72,7 +72,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
 
-    //collectionView(_:layout:insetForSectionAt:) returns the spacing between the cells, headers and footers. A constant stores the value.
+    // collectionView(_:layout:insetForSectionAt:) returns the spacing between the cells, headers and footers. A constant stores the value.
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -89,19 +89,17 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     ) -> CGFloat {
         return sectionInsets.left
     }
-    
-    
+
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                guard let destinationController = storyboard.instantiateViewController(withIdentifier: "moviedetail") as? MovieDetailsViewController else {
-                    return
-                }
+        guard let destinationController = storyboard.instantiateViewController(withIdentifier: "moviedetail") as? MovieDetailsViewController else {
+            return
+        }
 
-                if indexPath.row <= movieViewModel.movieArray.count {
-                    let movieModel = movieViewModel.movieArray[indexPath.row]
-                    destinationController.movieModel = movieModel
-                    navigationController?.show(destinationController, sender: self)
-                }
-            
+        if indexPath.row <= movieViewModel.movieArray.count {
+            let movieModel = movieViewModel.movieArray[indexPath.row]
+            destinationController.movieModel = movieModel
+            navigationController?.show(destinationController, sender: self)
+        }
     }
 }

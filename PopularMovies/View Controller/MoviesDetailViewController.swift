@@ -3,6 +3,7 @@ import UIKit
 
 class MovieDetailsViewController: UIViewController {
     // MARK: - Properties
+
     @IBOutlet var movieImage: UIImageView!
     @IBOutlet var movieGenre: UILabel!
     @IBOutlet var movieTitle: UILabel!
@@ -13,6 +14,7 @@ class MovieDetailsViewController: UIViewController {
     var movieModel: MovieResults?
 
     // MARK: - Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         movieGenre?.text = movieModel?.vote_average?.description

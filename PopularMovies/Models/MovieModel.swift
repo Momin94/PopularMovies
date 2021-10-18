@@ -1,6 +1,7 @@
 import Foundation
 
 // MARK: - Total Result Model
+
 struct ResultModel: Codable {
     let page: Int?
     let results: [MovieResults]?
@@ -24,6 +25,7 @@ struct ResultModel: Codable {
 }
 
 // MARK: - Movie Results Model
+
 struct MovieResults: Codable {
     let adult: Bool?
     let backdrop_path: String?
@@ -58,6 +60,7 @@ struct MovieResults: Codable {
     }
 
     // MARK: - Initialiser
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         adult = try values.decodeIfPresent(Bool.self, forKey: .adult)
