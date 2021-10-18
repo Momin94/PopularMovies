@@ -18,10 +18,11 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YbB-Qo-pxn">
-                        <rect key="frame" x="0.0" y="0.0" width="386" height="306"/>
+                        <rect key="frame" x="0.0" y="0.0" width="477" height="286.5"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="movieCells" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFK-t1-cIq">
-                        <rect key="frame" x="416" y="30" width="31" height="246"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="movieCells" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFK-t1-cIq">
+                        <rect key="frame" x="0.0" y="291.5" width="477" height="14.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" systemColor="systemGreenColor"/>
                         <nil key="highlightedColor"/>
@@ -30,20 +31,20 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="LFK-t1-cIq" secondAttribute="trailing" constant="30" id="4wh-pr-rxi"/>
-                <constraint firstItem="LFK-t1-cIq" firstAttribute="leading" secondItem="YbB-Qo-pxn" secondAttribute="trailing" constant="30" id="8lL-R5-1dc"/>
-                <constraint firstItem="LFK-t1-cIq" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Qmk-Mn-cBf"/>
-                <constraint firstItem="YbB-Qo-pxn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RC8-5X-1bU"/>
-                <constraint firstItem="YbB-Qo-pxn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bK8-uC-gIq"/>
-                <constraint firstItem="LFK-t1-cIq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="30" id="dJg-gS-tIO"/>
-                <constraint firstItem="LFK-t1-cIq" firstAttribute="centerY" secondItem="YbB-Qo-pxn" secondAttribute="centerY" id="hwu-Z5-886"/>
+                <constraint firstItem="YbB-Qo-pxn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DCr-XC-sCw"/>
+                <constraint firstItem="YbB-Qo-pxn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TGJ-WT-YCY"/>
+                <constraint firstItem="LFK-t1-cIq" firstAttribute="top" secondItem="YbB-Qo-pxn" secondAttribute="bottom" constant="5" id="dLc-uV-XFO"/>
+                <constraint firstAttribute="trailing" secondItem="YbB-Qo-pxn" secondAttribute="trailing" id="gxr-9e-dwV"/>
+                <constraint firstAttribute="bottom" secondItem="LFK-t1-cIq" secondAttribute="bottom" id="hWn-xn-pLe"/>
+                <constraint firstItem="LFK-t1-cIq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mu5-1p-7nh"/>
+                <constraint firstAttribute="trailing" secondItem="LFK-t1-cIq" secondAttribute="trailing" id="nP4-ix-3fl"/>
             </constraints>
             <size key="customSize" width="477" height="306"/>
             <connections>
                 <outlet property="movieImage" destination="YbB-Qo-pxn" id="fSd-ZF-WRS"/>
                 <outlet property="movieTitle" destination="LFK-t1-cIq" id="LJn-mk-uAO"/>
             </connections>
-            <point key="canvasLocation" x="-92" y="46"/>
+            <point key="canvasLocation" x="-92.028985507246389" y="45.535714285714285"/>
         </collectionViewCell>
     </objects>
     <resources>
