@@ -5,9 +5,9 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     @IBOutlet var movieView: UICollectionView!
     var movieViewModel = MovieViewModel()
     private let sectionInsets = UIEdgeInsets(
-        top: 30.0,
+        top: 20.0,
         left: 10.0,
-        bottom: 30.0,
+        bottom: 20.0,
         right: 10.0)
     private let itemsPerRow: CGFloat = 2
 
@@ -46,7 +46,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
             for: indexPath) as? MovieCell else {
                 return UICollectionViewCell()
             }
-        cell.backgroundColor = .darkGray
+        cell.backgroundColor = .black
         if indexPath.row <= movieViewModel.movieArray.count {
             let modelMovie = movieViewModel.movieArray[indexPath.row]
             cell.movieTitle.text = modelMovie.title
@@ -57,13 +57,14 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return cell
     }
 
-    // 1
+//tells the layout the size of a given cell.
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        // 2
+        //work out the total amount of space taken up by padding. You’ll have n + 1 evenly sized spaces, where n is the number of items in the row. You can take the space size from the left section inset.
+      //  Subtracting that from the view’s width and dividing by the number of items in a row gives you the width for each item. You then return the size as a square.
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
@@ -71,7 +72,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
 
-    // 3
+    //collectionView(_:layout:insetForSectionAt:) returns the spacing between the cells, headers and footers. A constant stores the value.
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -80,7 +81,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return sectionInsets
     }
 
-    // 4
+    // This method controls the spacing between each line in the layout. You want this spacing to match the padding at the left and right.
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
