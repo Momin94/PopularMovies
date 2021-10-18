@@ -1,75 +1,78 @@
 import Foundation
 
-// MARK: - MovieModel
-class MovieModel: Codable {
-    let page: Int
-    let results: [Result]
-    let totalPages, totalResults: Int
+// MARK: - Total Result Model
+struct ResultModel: Codable {
+    let page: Int?
+    let results: [MovieResults]?
+    let total_pages: Int?
+    let total_results: Int?
 
     enum CodingKeys: String, CodingKey {
-        case page, results
-        case totalPages = "total_pages"
-        case totalResults = "total_results"
+        case page
+        case results
+        case total_pages
+        case total_results
     }
 
-    init(page: Int, results: [Result], totalPages: Int, totalResults: Int) {
-        self.page = page
-        self.results = results
-        self.totalPages = totalPages
-        self.totalResults = totalResults
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        page = try values.decodeIfPresent(Int.self, forKey: .page)
+        results = try values.decodeIfPresent([MovieResults].self, forKey: .results)
+        total_pages = try values.decodeIfPresent(Int.self, forKey: .total_pages)
+        total_results = try values.decodeIfPresent(Int.self, forKey: .total_results)
     }
 }
 
-// MARK: - Result
-class Result: Codable {
-    let adult: Bool
-    let backdropPath: String
-    let genreIDS: [Int]
-    let id: Int
-    let originalLanguage: String
-    let originalTitle, overview: String
-    let popularity: Double
-    let posterPath, releaseDate, title: String
-    let video: Bool
-    let voteAverage: Double
-    let voteCount: Int
+// MARK: - Movie Results Model
+struct MovieResults: Codable {
+    let adult: Bool?
+    let backdrop_path: String?
+    let genre_ids: [Int]?
+    let id: Int?
+    let original_language: String?
+    let original_title: String?
+    let overview: String?
+    let popularity: Double?
+    let poster_path: String?
+    let release_date: String?
+    let title: String?
+    let video: Bool?
+    let vote_average: Double?
+    let vote_count: Int?
 
     enum CodingKeys: String, CodingKey {
         case adult
-        case backdropPath = "backdrop_path"
-        case genreIDS = "genre_ids"
+        case backdrop_path
+        case genre_ids
         case id
-        case originalLanguage = "original_language"
-        case originalTitle = "original_title"
-        case overview, popularity
-        case posterPath = "poster_path"
-        case releaseDate = "release_date"
-        case title, video
-        case voteAverage = "vote_average"
-        case voteCount = "vote_count"
+        case original_language
+        case original_title
+        case overview
+        case popularity
+        case poster_path
+        case release_date
+        case title
+        case video
+        case vote_average
+        case vote_count
     }
 
-    init(adult: Bool, backdropPath: String, genreIDS: [Int], id: Int, originalLanguage: OriginalLanguage, originalTitle: String, overview: String, popularity: Double, posterPath: String, releaseDate: String, title: String, video: Bool, voteAverage: Double, voteCount: Int) {
-        self.adult = adult
-        self.backdropPath = backdropPath
-        self.genreIDS = genreIDS
-        self.id = id
-        self.originalLanguage = ""
-        self.originalTitle = originalTitle
-        self.overview = overview
-        self.popularity = popularity
-        self.posterPath = posterPath
-        self.releaseDate = releaseDate
-        self.title = title
-        self.video = video
-        self.voteAverage = voteAverage
-        self.voteCount = voteCount
+    // MARK: - Initialiser
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        adult = try values.decodeIfPresent(Bool.self, forKey: .adult)
+        backdrop_path = try values.decodeIfPresent(String.self, forKey: .backdrop_path)
+        genre_ids = try values.decodeIfPresent([Int].self, forKey: .genre_ids)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        original_language = try values.decodeIfPresent(String.self, forKey: .original_language)
+        original_title = try values.decodeIfPresent(String.self, forKey: .original_title)
+        overview = try values.decodeIfPresent(String.self, forKey: .overview)
+        popularity = try values.decodeIfPresent(Double.self, forKey: .popularity)
+        poster_path = try values.decodeIfPresent(String.self, forKey: .poster_path)
+        release_date = try values.decodeIfPresent(String.self, forKey: .release_date)
+        title = try values.decodeIfPresent(String.self, forKey: .title)
+        video = try values.decodeIfPresent(Bool.self, forKey: .video)
+        vote_average = try values.decodeIfPresent(Double.self, forKey: .vote_average)
+        vote_count = try values.decodeIfPresent(Int.self, forKey: .vote_count)
     }
 }
-
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-    case fr = "fr"
-}
-
-
