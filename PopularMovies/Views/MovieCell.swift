@@ -11,6 +11,8 @@ class MovieCell: UICollectionViewCell {
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieImage: UIImageView!
 
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -2,13 +2,17 @@ import SDWebImage
 import UIKit
 
 class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
     @IBOutlet var movieView: UICollectionView!
+    
     var movieViewModel = MovieViewModel()
+    
     private let sectionInsets = UIEdgeInsets(
         top: 20.0,
         left: 10.0,
         bottom: 20.0,
         right: 10.0)
+    
     private let itemsPerRow: CGFloat = 2
 
     override func viewDidLoad() {
@@ -47,8 +51,8 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
             return UICollectionViewCell()
         }
         cell.backgroundColor = .black
-        if indexPath.row <= movieViewModel.movieArray.count {
-            let modelMovie = movieViewModel.movieArray[indexPath.row]
+        if indexPath.row <= movieViewModel.getCount() {
+            let modelMovie = movieViewModel.movieAt(index: indexPath.row)
             cell.movieTitle.text = modelMovie.title
             let imageURL = URL(string: "\(Constants.shareInstance.getBaseImageUrl())" + (modelMovie.poster_path ?? ""))
             cell.movieImage.sd_setImage(with: imageURL)
@@ -96,8 +100,8 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
             return
         }
 
-        if indexPath.row <= movieViewModel.movieArray.count {
-            let movieModel = movieViewModel.movieArray[indexPath.row]
+        if indexPath.row <= movieViewModel.getCount() {
+            let movieModel = movieViewModel.movieAt(index: indexPath.row)
             destinationController.movieModel = movieModel
             navigationController?.show(destinationController, sender: self)
         }

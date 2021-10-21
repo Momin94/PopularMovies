@@ -4,16 +4,20 @@ import UIKit
 class ApiService: NSObject {
     static let shareInstance = ApiService()
 
-    func getAllMovies(url: URL, callback: @escaping (ResultModel) -> Void) {
-        AF.request("\(Constants.shareInstance.getBaseAPI())\(Constants.shareInstance.getAPIKey())\(Constants.shareInstance.getAPIParams())").response { response in
+    func decodableAPI<T: Decodable>(url: URL, success: @escaping (T) -> Void, faliure: @escaping (String) -> Void) {
+        AF.request(url.absoluteString).response { response in
             if let data = response.data {
                 do {
-                    let movieResponse = try JSONDecoder().decode(ResultModel.self, from: data)
-                    callback(movieResponse)
+                    let decodedObject = try JSONDecoder().decode(T.self, from: data)
+                    success(decodedObject)
                 } catch let err {
-                    print(err)
+                    faliure(err.localizedDescription)
                 }
             }
         }
+    }
+    
+    func getAllMovies(url: URL, success: @escaping (MoviesResponseCodable) -> Void, faliure: @escaping (String) -> Void) {
+        ApiService.shareInstance.decodableAPI(url: url, success: success, faliure: faliure)
     }
 }

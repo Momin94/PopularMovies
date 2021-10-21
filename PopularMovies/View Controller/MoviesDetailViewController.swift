@@ -11,7 +11,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet var movieDate: UILabel!
 
     var imageText: String?
-    var movieModel: MovieResults?
+    var movieModel: MovieCodable?
 
     // MARK: - Methods
 
